@@ -7,7 +7,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-
 const styles = {
   root: {
     flexGrow: 1,
@@ -17,20 +16,16 @@ const styles = {
   },
 };
 
-
 function Header(props) {
   const { classes } = props;
-
-
   return (
     <div className={classes.root}>
-      <AppBar color='white' position="static" title={<img src="iugo-logo.png" alt="iugo"/>}>
+      <AppBar position="static" title={<img src="iugo-logo.png" alt="iugo"/>}>
         <Toolbar>
           <Typography variant='title'>
             <img src='images/iugo-logo.png' className='logo' alt='iugo'/>
             </Typography>
           <Button color="black">Login</Button>
-          <Button color="black">Sign Up</Button>
         </Toolbar>
       </AppBar>
     </div>

@@ -18,7 +18,7 @@ class RegisterPage extends Component {
 
     if (this.state.username === '' || this.state.password === '') {
       this.setState({
-        message: 'Please complete the form to register your organization!',
+        message: 'Choose a username and password!',
       });
     } else {
       const body = {

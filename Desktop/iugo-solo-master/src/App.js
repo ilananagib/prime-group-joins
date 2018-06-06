@@ -12,10 +12,6 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import UserPage from './components/UserPage/UserPage';
 import InfoPage from './components/InfoPage/InfoPage';
 import SideNavBar from './components/SideNavBar/SideNavBar';
-import AboutPage from './components/AboutPage/AboutPage';
-import CategoriesPage from './components/CategoriesPage/CategoriesPage';
-import ContactUsPage from './components/ContactUsPage/ContactUsPage';
-
 
 import './styles/main.css';
 
@@ -23,7 +19,7 @@ import './styles/main.css';
 const App = () => (
   <div>
     <Header />
-    <SideNavBar />
+    <SideNavBar/>
     <Router>
       <Switch>
         <Redirect exact from="/" to="/home" />
@@ -42,18 +38,6 @@ const App = () => (
         <Route
           path="/info"
           component={InfoPage}
-        />
-        <Route
-          path="/about"
-          component={AboutPage}
-        />
-        <Route
-          path="/categories"
-          component={CategoriesPage}
-        />
-        <Route
-          path="/contactus"
-          component={ContactUsPage}
         />
         {/* OTHERWISE (no path!) */}
         <Route render={() => <h1>404</h1>} />
