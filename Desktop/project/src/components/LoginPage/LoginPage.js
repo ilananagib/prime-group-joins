@@ -2,11 +2,29 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { triggerLogin, formError, clearError } from '../../redux/actions/loginActions';
-
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
 
 const mapStateToProps = state => ({
   user: state.user,
   login: state.login,
+});
+
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: 200,
+  },
+  menu: {
+    width: 200,
+  },
 });
 
 class LoginPage extends Component {
@@ -14,8 +32,15 @@ class LoginPage extends Component {
     super(props);
 
     this.state = {
-      username: '',
-      password: '',
+      organization: '',
+      address: '',
+      city: '',
+      zip: '',
+      phone: '',
+      email: '',
+      website: '',
+      org_login: '',
+      org_password: '',
     };
   }
 
@@ -33,10 +58,10 @@ class LoginPage extends Component {
   login = (event) => {
     event.preventDefault();
 
-    if (this.state.username === '' || this.state.password === '') {
+    if (this.state.org_login === '' || this.state.org_password === '') {
       this.props.dispatch(formError());
     } else {
-      this.props.dispatch(triggerLogin(this.state.username, this.state.password));
+      this.props.dispatch(triggerLogin(this.state.org_login, this.state.org_password));
     }
   }
 
@@ -61,7 +86,7 @@ class LoginPage extends Component {
   }
 
   render() {
-    return (
+       return (
       <div>
         { this.renderAlert() }
         <form onSubmit={this.login}>
